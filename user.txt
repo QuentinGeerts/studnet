@@ -1,0 +1,19 @@
+User 
+(
+	id : varchar
+	lastname : varchar
+	firstname : varchar
+
+	birthdate : datetime
+	birthplace : varchar
+
+	gender : varchar
+	
+	email : varchar
+	password : varchar
+
+	phoneNumber : varchar
+
+	createdAt : datetime
+	updatedAt : datetime NULL
+)
