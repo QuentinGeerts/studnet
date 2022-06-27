@@ -1,7 +1,7 @@
 <?php
 
-if ($base_url !== $_SERVER['REQUEST_URI']) {
-    switch ($main_page) {
+if ($main !== '') {
+    switch ($main) {
 
         case 'home':
             include_once 'views/page/home.php';
@@ -13,6 +13,14 @@ if ($base_url !== $_SERVER['REQUEST_URI']) {
 
         case 'page2':
             include_once 'views/page/page2.php';
+            break;
+
+        /*
+            Users
+        */
+        
+        case 'profile':
+            include_once 'controllers/users/profile.php';
             break;
 
         /*

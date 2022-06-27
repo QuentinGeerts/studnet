@@ -4,18 +4,35 @@
     URL
 */
 
+// http://localhost/studnet/home
 $full_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
-$base_url = str_replace(
-    basename($_SERVER['PHP_SELF']),
-    '',
-    $_SERVER['PHP_SELF']
-);
+// 1 http:/
+// 2 /
+// 3 localhost/
+// 4 studnet/
+// 5 home
 
-$params = array_slice(explode("/", $_SERVER['REQUEST_URI']), 3);
+// Récupère toute la partie après le 4e '/'
+list($http, , $host, $dir) = explode('/', $full_link);
 
-$main_page = $params[0];
+$basement = $http . "//" . $host . "/" . $dir;
 
-// echo "<pre>"; print_r($_SERVER); die;
+$uri = array_slice(explode("/", $full_link), 4);
+$query_string = $_SERVER['QUERY_STRING'];
+
+// Supprimer la query string des uri
+if (($key = array_search('?' . $query_string, $uri)) !== false) { unset($uri[$key]); }
+
+// echo "<pre>";
+// echo "URI : ";
+// print_r($uri);
+// echo "</pre>";
+
+// echo "<pre>";
+// echo "_GET : " . print_r($_GET, true);
+// echo "</pre>";
+
+$main = $uri[0];
 
 
