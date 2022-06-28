@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.1.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 28, 2022 at 07:15 PM
+-- Generation Time: Jun 28, 2022 at 11:22 PM
 -- Server version: 5.7.24
--- PHP Version: 7.4.16
+-- PHP Version: 8.0.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -51,11 +51,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `lastname`, `firstname`, `gender`, `birthdate`, `birthplace`, `email`, `password`, `phone_number`, `street`, `number`, `zip_code`, `city`, `role`, `created_at`, `updated_at`) VALUES
-('009C1069-2E7B-4C5B-9BFF-66C5FD277C95', 'Geerts', 'Quentin', 'M', '2022-12-31', 'Montigny-Le-Tilleul', 'quentin.geerts@bstorm.bee', '00d70c561892a94980befd12a400e26aeb4b8599', '+32 496 04 69 10', 'Rue de la Fabrique', '6', 6500, 'Solre-Saint-Géry', 0, '2022-06-28 19:57:53', NULL),
-('45BF44B6-D88F-4A05-81E6-D7BF1B4A2355', '<h1>Hack3d</h1>', 'Quentin', 'F', '2022-12-31', 'Montigny-Le-Tilleul', 'a@aa.aa', '00d70c561892a94980befd12a400e26aeb4b8599', '+32 496 04 69 10', 'Rue de la Fabrique', '6', 6500, 'Solre-Saint-Géry', 0, '2022-06-28 17:54:52', NULL),
-('4BEDFF15-00AB-4D88-851F-A1F33AB6FC1A', 'Geerts', 'William', 'M', '2003-01-03', 'Chimay', 'geerts.william@gmail.com', 'd5c1516e153b8dffcd638f9d4cbe950d7f9f47d4', '+32 123 45 67 89', 'Rue de la Fabrique', '6', 6500, 'Solre-Saint-Géry', 0, '2022-06-28 19:48:27', NULL),
-('84476EBC-4F04-4391-89FF-70ABF811C7B6', '&lt;h1&gt;Hack3d&lt;/h1&gt;', 'Quentin', 'F', '2022-12-31', 'Montigny-Le-Tilleul', 'quentin.geerts@bstorm.beee', '00d70c561892a94980befd12a400e26aeb4b8599', '+32 496 04 69 10', 'Rue de la Fabrique', '6', 6500, NULL, 0, '2022-06-28 20:09:37', NULL),
+('5291DB18-D6E0-4C62-98C7-65D34B72E908', 'Geerts', 'Mélanie', 'F', '1988-05-08', 'Chimay', 'melanie.geerts@bstorm.be', '00d70c561892a94980befd12a400e26aeb4b8599', NULL, 'Rue du Discobole', '13', 1340, 'Ottignies Louvain-La-Neuve', 0, '2022-06-29 01:17:39', '2022-06-29 01:17:59'),
 ('8B6F89C0-99CB-4F65-B3B9-7B9D202C02AC', 'Geerts', 'Quentin', 'M', '1996-04-03', 'Montigny-Le-Tilleul', 'quentin.geerts@bstorm.be', '00d70c561892a94980befd12a400e26aeb4b8599', '+32 496 04 69 10', 'Rue de la Fabrique', '6', 6500, 'Solre-Saint-Géry', 1, '2022-06-28 17:30:10', '2022-06-28 17:51:50'),
+('979A4645-E813-44FD-88CD-A992E859E670', 'admin', 'admin', 'X', '2022-06-29', 'Bruxelles', 'admin@sn.com', 'd033e22ae348aeb5660fc2140aec35850c4da997', NULL, NULL, NULL, NULL, NULL, 1, '2022-06-29 01:05:40', '2022-06-29 01:07:16'),
 ('AC040774-91D7-44C2-883D-C578067040F6', 'Person', 'Michael', 'M', '1980-01-01', 'Bruxelles', 'michael.person@bstorm.be', '58aa866998173d5462715f4d80af39742ed9e868', '+32 123 45 67 89', 'Rue de la rue', '42', 1000, 'Bruxelles', 0, '2022-06-28 17:47:47', NULL);
 
 --

@@ -25,7 +25,10 @@ if ($main !== '') {
 
         case 'students':
             if (!isset($second)) include_once 'controllers/users/getAllUsers.php';
-            else include_once 'controllers/users/profile.php';
+            else {
+                if (isset($_POST['deleteUser'])) include_once 'controllers/users/getAllUsers.php';
+                else include_once 'controllers/users/profile.php';
+            }
 
 
             break;

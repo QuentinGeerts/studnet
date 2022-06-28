@@ -2,6 +2,8 @@
 
 include "models/user.php";
 
+if (!isset($_SESSION['connected'])) header("Location: 404");
+
 $selected_user_id = isset($second) ? strtoupper($second) : $_SESSION['id'];
 
 $response = getUserById($selected_user_id);

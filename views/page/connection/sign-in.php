@@ -6,7 +6,7 @@
         <div class="row align-items-center ms-auto">
 
             <div class="col-lg-6">
-                <img src="public/img/logo.png" alt="Logo" class="img-fluid rounded">
+                <img src="<?= $basement ?>/public/img/logo.png" alt="Logo" class="img-fluid rounded">
             </div>
             <div class="col-lg-6">
 

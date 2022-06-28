@@ -1,7 +1,7 @@
 <?php
 
 /*
------- CREATE ------ 
+    ------ CREATE ------ 
 */
 
 function addUser($user)
@@ -47,7 +47,7 @@ function addUser($user)
 }
 
 /*
-    ------ Read ------ 
+    ------ READ ------ 
 */
 
 function getUserByEmail($email)
@@ -141,4 +141,28 @@ function getUserById($id)
     }
 
     return false;
+}
+
+/*
+    ------ UPDATE ------ 
+*/
+
+
+
+/*
+    ------ DELETE ------ 
+*/
+
+function deleteUser($id)
+{
+    // Connexion à la base de données
+    include "controllers/database.php";
+
+    $query = "DELETE FROM user WHERE id = :id";
+
+    $obj = $db->prepare($query);
+
+    $params = [':id' => $id];
+
+    return $obj->execute($params) ? response(true, 200, "OK") : response(false, 404, "NOT_FOUND");
 }

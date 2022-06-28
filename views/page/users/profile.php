@@ -5,7 +5,17 @@
 
         <div class="col-lg-3 col-sm-12">
             <div class="card">
-                <img src="<?= $basement ?>/public/img/logo.png" class="card-img-top" alt="...">
+
+                <?php
+
+                if ($gender == 'M' || $gender == 'X') {
+                    echo "<img src='$basement/public/img/avatar_m.png' class='card-img-top' alt='...'>";
+                }
+                if ($gender == 'F') {
+                    echo "<img src='$basement/public/img/avatar_f.png' class='card-img-top' alt='...'>";
+                }
+
+                ?>
                 <div class="card-body">
                     <h5 class="card-title"><?= $lastname . " " . $firstname ?></h5>
                 </div>

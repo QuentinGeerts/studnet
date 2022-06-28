@@ -33,7 +33,8 @@
                     if ($_SESSION['role'] == 1) {
                         echo "<i class='fa-solid fa-crown'></i> ";
                     }
-                    echo "{$_SESSION['firstname']} {$_SESSION['lastname']}";
+                    echo "{$_SESSION['email']}";
+                    // echo "{$_SESSION['firstname']} {$_SESSION['lastname']}";
                     echo "</a>";
                     echo "<ul class='dropdown-menu' aria-labelledby='navbarDropdownMenuLink'>";
                     echo "<li><a class='dropdown-item' href='{$basement}/profile'>Profil</a></li>";

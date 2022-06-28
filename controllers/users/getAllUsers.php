@@ -2,7 +2,14 @@
 
 include "models/user.php";
 
-if (!isset($_POST['connected'])) header("Location: home");
+if(isset($_POST['deleteUser'])) {
+
+    echo "OK";
+    debug($_POST, false);
+
+}
+
+if (!isset($_SESSION['connected'])) header("Location: 404");
 
 $students_cards = "";
 
@@ -35,12 +42,22 @@ foreach ($response['data'] as $user) {
     $students_cards .= "<div class='card mb-3'>";
     $students_cards .= "<div class='row g-0'>";
     $students_cards .= "<div class='col-12 col-sm-2 col-md-4 align-self-center'>";
-    $students_cards .= "<img src='$basement/public/img/logo.png' class='img-fluid rounded-start' alt='...'>";
+
+    if ($gender == "M" || $gender == "X") {
+        $students_cards .= "<img src='$basement/public/img/avatar_m.png' class='img-fluid rounded-start' alt='...'>";
+    }
+    if ($gender == "F") {
+        $students_cards .= "<img src='$basement/public/img/avatar_f.png' class='img-fluid rounded-start' alt='...'>";
+    }
+
     $students_cards .= "</div>";
     $students_cards .= "<div class='col-12 col-sm-10 col-md-8'>";
     $students_cards .= "<div class='card-body'>";
     $students_cards .= "<h6 class='card-title'>$icon $lastname $firstname</h6>";
-    $students_cards .= "<p class='card-text'><a href='$basement/students/" . strtolower($id) . "'><button type='button' class='btn btn-secondary btn-sm'>Profil</button></a></p>";
+    $students_cards .= "<div class='d-grid gap-1 d-md-flex'>";
+    $students_cards .= "<a href='$basement/students/" . strtolower($id) . "'><button type='button' class='btn btn-secondary btn-sm'><i class='fa-solid fa-id-card-clip'></i></button></a>";
+    $students_cards .= "<form action='$basement/students/' method='post'><a href='$basement/students/" . strtolower($id) . "'><button type='button' class='btn btn-danger btn-sm' name='deleteUser'><i class='fa-solid fa-trash'></i></button></a></form>";
+    $students_cards .= "</div>";
     $students_cards .= "</div>";
     $students_cards .= "</div>";
     $students_cards .= "</div>";
