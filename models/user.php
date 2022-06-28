@@ -65,7 +65,7 @@ function getUserByEmail($email)
     if ($obj->execute($params)) {
         $users = $obj->fetchAll()[0];
 
-        return (count($users) > 1) ? true : false;
+        return !empty($users) ? true : false;
     }
 
     return false;
@@ -94,10 +94,10 @@ function signIn($email, $pwd)
         ];
 
         if ($obj->execute($params)) {
-            $user = $obj->fetchAll()[0];
+            $users = $obj->fetchAll();
 
-            if (count($user) > 1) {
-                return response(true, 200, "OK", $user);
+            if (!empty($users)) {
+                return response(true, 200, "OK", $users[0]);
             } else {
                 return response(false, 500, "BAD_CREDENTIALS");
             }
