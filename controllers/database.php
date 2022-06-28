@@ -8,7 +8,7 @@
 $host = 'localhost';
 
 // Nom de la base de données
-$dbname = 'studnets';
+$dbname = 'studnet';
 
 // Encodage des données
 $charset = 'utf8';

@@ -1,19 +1,38 @@
 User 
 (
-	id : varchar
+	id : char(36)
 	lastname : varchar
 	firstname : varchar
 
-	birthdate : datetime
-	birthplace : varchar
+	birthdate : datetime NULL
+	birthplace : varchar NULL
 
 	gender : varchar
 	
 	email : varchar
 	password : varchar
 
-	phoneNumber : varchar
+	phoneNumber : varchar NULL
+
+	street : varchar NULL
+	number : varchar NULL
+	zip : int NULL
+	city : varchar NULL
 
 	createdAt : datetime
 	updatedAt : datetime NULL
 )
+
+Img 
+(
+	id : char(36)
+	name : varchar
+	extension : varchar
+
+	path : varchar
+	main : bit
+
+	userId : char(36)
+)
+
+

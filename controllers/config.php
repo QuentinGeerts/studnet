@@ -34,5 +34,3 @@ if (($key = array_search('?' . $query_string, $uri)) !== false) { unset($uri[$ke
 // echo "</pre>";
 
 $main = $uri[0];
-
-
