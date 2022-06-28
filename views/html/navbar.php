@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
         <a class="navbar-brand" href="<?= $basement ?>">
-            <img src="public/img/logo.png" alt="" width="30" class="d-inline-block align-text-top">
+            <img src="<?= $basement ?>/public/img/logo.png" alt="" width="30" class="d-inline-block align-text-top">
             StudNet
         </a>
 
@@ -18,16 +18,21 @@
                 <?php
 
                 if (!isset($_SESSION['connected'])) {
-                    
+
                     echo "<li class='nav-item mx-3'>";
                     echo "<a class='nav-link " . ($main == 'sign-in' ? 'active' : '') . "' href='{$basement}/sign-in'><i class='fa-solid fa-right-to-bracket'></i> Se connecter</a>";
-                    
                     echo "</li>";
                 } else {
-                    
+
+                    echo "<li class='nav-item mx-3'>";
+                    echo "<a class='nav-link " . ($main == 'students' || $main == '' ? 'active' : '') . " aria-current='page' href='$basement/students'><i class='fa-solid fa-graduation-cap'></i> Étudiants</a>";
+                    echo "</li>";
+
                     echo "<li class='nav-item dropdown me-3'>";
                     echo "<a class='nav-link dropdown-toggle' href='#' id='navbarDropdownMenuLink' role='button' data-bs-toggle='dropdown' aria-expanded='false'>";
-                    if ($_SESSION['role'] == 1) { echo "<i class='fa-solid fa-crown'></i> "; }
+                    if ($_SESSION['role'] == 1) {
+                        echo "<i class='fa-solid fa-crown'></i> ";
+                    }
                     echo "{$_SESSION['firstname']} {$_SESSION['lastname']}";
                     echo "</a>";
                     echo "<ul class='dropdown-menu' aria-labelledby='navbarDropdownMenuLink'>";
@@ -39,7 +44,6 @@
                     echo "</li>";
                     echo "<li class='nav-item'>";
                     echo "</li>";
-                    
                 }
 
                 ?>

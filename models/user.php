@@ -60,7 +60,7 @@ function getUserByEmail($email)
 
     $obj = $db->prepare($query);
 
-    $params = [ ':email' => $email ];
+    $params = [':email' => $email];
 
     if ($obj->execute($params)) {
         $users = $obj->fetchAll()[0];
@@ -106,4 +106,39 @@ function signIn($email, $pwd)
     } catch (PDOException $e) {
         // if ($e->getCode() == 23000) return response(false, 500, "DUPLICATE");
     }
+}
+
+function getAllUsers()
+{
+
+    // Connexion à la base de données
+    include "controllers/database.php";
+
+    $query = "SELECT * FROM user";
+
+    $obj = $db->query($query);
+
+    $users = $obj->fetchAll();
+
+    return response(true, 200, "OK", $users);
+}
+
+function getUserById($id)
+{
+    // Connexion à la base de données
+    include "controllers/database.php";
+
+    $query = "SELECT * FROM user WHERE id = :id";
+
+    $obj = $db->prepare($query);
+
+    $params = [':id' => $id];
+
+    if ($obj->execute($params)) {
+        $users = $obj->fetchAll();
+
+        return !empty($users) ? response(true, 200, "OK", $users[0]) : response(false, 404, "NOT_FOUND", []);
+    }
+
+    return false;
 }

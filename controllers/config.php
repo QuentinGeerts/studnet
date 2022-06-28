@@ -25,5 +25,6 @@ $query_string = $_SERVER['QUERY_STRING'];
 if (($key = array_search('?' . $query_string, $uri)) !== false) { unset($uri[$key]); }
 
 $main = $uri[0];
+$second = $uri[1];
 
 
