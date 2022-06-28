@@ -21,3 +21,22 @@ function createGUID()
         . chr(125);
     return $set_uuid;
 }
+
+function response(bool $success, string $code = null, string $message = null, array $params = []): array
+{
+
+    return [
+        "success" => $success, 
+        "error" => [
+            "code" => $code,
+            "message" => $message
+        ],
+        "data" => $params
+    ];
+}
+
+function debug($variable = "OK", $die = true)
+{
+    echo "<pre>" . print_r($variable, true) . "</pre>";
+    if ($die) die;
+}

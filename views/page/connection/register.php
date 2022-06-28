@@ -1,8 +1,8 @@
 <?= $register_information ?>
 
-<h1 class="mb-5">Inscription</h1>
+<h1 class="mb-3">Inscription</h1>
 
-<form action="<?= $basement ?>/register" method="POST">
+<form action="register" method="POST">
 
     <fieldset>
 
@@ -94,7 +94,7 @@
                         <input type="text" name="password" class="form-control <?= $password_validity ?>" id="password" value="<?= $password ?>" required>
                         <?= $password_error ?>
                     </div>
-                    
+
                     <div class="mb-3">
                         <label for="repeat_password" class="form-label"><i class="fa-solid fa-arrow-rotate-right"></i> Répéter le mot de passe :</label>
                         <input type="text" name="repeat_password" class="form-control <?= $repeat_password_validity ?>" id="repeat_password" value="<?= $repeat_password ?>" required>

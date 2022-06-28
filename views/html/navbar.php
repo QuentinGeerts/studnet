@@ -9,26 +9,37 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
+        <div class="collapse navbar-collapse " id="navbarNav">
+            <ul class="navbar-nav ms-auto pe-3">
+                <li class="nav-item mx-3">
                     <a class="nav-link <?= $main == 'home' || $main == '' ? 'active' : '' ?>" aria-current="page" href="<?= $basement ?>/home"><i class="fa-solid fa-house"></i> Home</a>
                 </li>
-
-            </ul>
-
-            <ul class="navbar-nav ms-auto">
 
                 <?php
 
                 if (!isset($_SESSION['connected'])) {
-                    echo "<li class='nav-item'>";
+                    
+                    echo "<li class='nav-item mx-3'>";
                     echo "<a class='nav-link " . ($main == 'sign-in' ? 'active' : '') . "' href='{$basement}/sign-in'><i class='fa-solid fa-right-to-bracket'></i> Se connecter</a>";
+                    
                     echo "</li>";
                 } else {
-                    echo "<li class='nav-item'>";
-                    echo "<a class='nav-link' href='{$basement}/sign-out'><i class='fa-solid fa-right-from-bracket'></i> Se déconnecter</a>";
+                    
+                    echo "<li class='nav-item dropdown me-3'>";
+                    echo "<a class='nav-link dropdown-toggle' href='#' id='navbarDropdownMenuLink' role='button' data-bs-toggle='dropdown' aria-expanded='false'>";
+                    if ($_SESSION['role'] == 1) { echo "<i class='fa-solid fa-crown'></i> "; }
+                    echo "{$_SESSION['firstname']} {$_SESSION['lastname']}";
+                    echo "</a>";
+                    echo "<ul class='dropdown-menu' aria-labelledby='navbarDropdownMenuLink'>";
+                    echo "<li><a class='dropdown-item' href='#'>Action</a></li>";
+                    echo "<li><a class='dropdown-item' href='#'>Another action</a></li>";
+                    echo "<hr>";
+                    echo "<li><a class='nav-link' href='{$basement}/sign-out'><i class='fa-solid fa-right-from-bracket'></i> Se déconnecter</a></li>";
+                    echo "</ul>";
                     echo "</li>";
+                    echo "<li class='nav-item'>";
+                    echo "</li>";
+                    
                 }
 
                 ?>

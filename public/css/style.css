@@ -19,16 +19,16 @@ body,
             Sign in
 *****************************/
 
-.signin-container {
+/* .signin-container {
     width: 50%;
     margin: 0 auto;
-}
+} */
 
 @media screen and (max-width: 800px) {
 
-    .signin-container {
+    /* .signin-container {
         width: 100%;
-    }
+    } */
 
 }
 

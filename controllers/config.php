@@ -24,13 +24,6 @@ $query_string = $_SERVER['QUERY_STRING'];
 // Supprimer la query string des uri
 if (($key = array_search('?' . $query_string, $uri)) !== false) { unset($uri[$key]); }
 
-// echo "<pre>";
-// echo "URI : ";
-// print_r($uri);
-// echo "</pre>";
-
-// echo "<pre>";
-// echo "_GET : " . print_r($_GET, true);
-// echo "</pre>";
-
 $main = $uri[0];
+
+

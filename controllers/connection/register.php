@@ -1,21 +1,24 @@
 <?php
 
+include_once "models/user.php";
+
+
 if (isset($_POST['register_request'])) {
 
     // Récupération des données (+ suppression des espaces autour de la données)
-    $lastname = trim($_POST['lastname']);
-    $firstname = trim($_POST['firstname']);
-    $gender = trim($_POST['gender']);
-    $birthplace = trim($_POST['birthplace']);
-    $birthdate = trim($_POST['birthdate']);
-    $phone_number = trim($_POST['phone_number']);
-    $email = trim($_POST['email']);
-    $password = trim($_POST['password']);
-    $repeat_password = trim($_POST['repeat_password']);
-    $street = trim($_POST['street']);
-    $number = trim($_POST['number']);
-    $zip_code = trim($_POST['zip_code']);
-    $city = trim($_POST['city']);
+    $lastname = htmlspecialchars(trim($_POST['lastname']));
+    $firstname = htmlspecialchars(trim($_POST['firstname']));
+    $gender = htmlspecialchars(trim($_POST['gender']));
+    $birthplace = htmlspecialchars(trim($_POST['birthplace']));
+    $birthdate = htmlspecialchars(trim($_POST['birthdate']));
+    $phone_number = htmlspecialchars(trim($_POST['phone_number']));
+    $email = htmlspecialchars(trim($_POST['email']));
+    $password = htmlspecialchars(trim($_POST['password']));
+    $repeat_password = htmlspecialchars(trim($_POST['repeat_password']));
+    $street = htmlspecialchars(trim($_POST['street']));
+    $number = htmlspecialchars(trim($_POST['number']));
+    $zip_code = htmlspecialchars(trim($_POST['zip_code']));
+    $city = htmlspecialchars(trim($_POST['city']));
 
     // Vérification de la validité des données
     $lastname_validity = empty($lastname) ? "is-invalid" : "is-valid";
@@ -51,8 +54,6 @@ if (isset($_POST['register_request'])) {
         }
     } else {
 
-        include_once "models/user.php";
-    
         $user_to_add = [
             $lastname,
             $firstname,
@@ -74,10 +75,9 @@ if (isset($_POST['register_request'])) {
             $register_information = alert(true, "Votre compte a bien été créé. <br>Vous allez être redirigé dans 5 secondes.");
 
             header("refresh:5; url=sign-in");
-        }
-        else {
+        } else {
             $register_information = alert(false, "Il y a eu une erreur lors de la création.");
-            
+
             if ($response["error"]['code'] == 500 && $response["error"]['message'] == 'DUPLICATE') {
                 $email_error = feedback(false, "L'adresse email existe déjà.");
                 $email_validity = 'is-invalid';
