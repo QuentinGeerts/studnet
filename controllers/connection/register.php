@@ -52,6 +52,12 @@ if (isset($_POST['register_request'])) {
             $password_error .= "Mots de passe différents";
             $password_error .= "</div>";
         }
+
+        if (getUserByEmail($email)) {
+            $email_error = feedback(false, "L'adresse email existe déjà.");
+            $email_validity = 'is-invalid';
+        }
+
     } else {
 
         $user_to_add = [
@@ -76,7 +82,7 @@ if (isset($_POST['register_request'])) {
 
             header("refresh:5; url=sign-in");
         } else {
-            $register_information = alert(false, "Il y a eu une erreur lors de la création.");
+            // $register_information = alert(false, "Il y a eu une erreur lors de la création.");
 
             if ($response["error"]['code'] == 500 && $response["error"]['message'] == 'DUPLICATE') {
                 $email_error = feedback(false, "L'adresse email existe déjà.");

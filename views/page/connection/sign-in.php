@@ -1,4 +1,4 @@
-<h1>Connexion</h1>
+<!-- <h1>Connexion</h1> -->
 <div class="sm-12 signin-container">
 
     <form action="sign-in" method="POST">

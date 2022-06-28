@@ -31,7 +31,7 @@
                     echo "{$_SESSION['firstname']} {$_SESSION['lastname']}";
                     echo "</a>";
                     echo "<ul class='dropdown-menu' aria-labelledby='navbarDropdownMenuLink'>";
-                    echo "<li><a class='dropdown-item' href='#'>Action</a></li>";
+                    echo "<li><a class='dropdown-item' href='{$basement}/profile'>Profil</a></li>";
                     echo "<li><a class='dropdown-item' href='#'>Another action</a></li>";
                     echo "<hr>";
                     echo "<li><a class='nav-link' href='{$basement}/sign-out'><i class='fa-solid fa-right-from-bracket'></i> Se déconnecter</a></li>";
