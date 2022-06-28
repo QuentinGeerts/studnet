@@ -36,7 +36,7 @@
 
             </div>
 
-            <button type="submit" class="btn btn-primary w-25 ms-auto mb-5">Se connecter</button>
+            <button type="submit" class="btn btn-primary w-25 ms-auto mb-3">Se connecter</button>
 
             <!-- S'enregistrer -->
             <p class="text-center">Toujours pas inscrit ? C'est par <a href="register">ici</a> !</p>
