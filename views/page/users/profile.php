@@ -50,7 +50,14 @@
                                 <i class="fa-solid fa-cake-candles"></i>
                             </div>
                             <div class="col-11">
-                                <?= $birthdate ?> <br>
+                                <?php
+                                $d = new DateTime($birthdate);
+                                $today = new DateTime();
+
+                                $age = $today->diff($d);
+
+                                echo $today->format("d/m/y") . " - $age->y ans";
+                                ?> <br>
                                 <?= $birthplace ?> <br>
                             </div>
                         </div>
