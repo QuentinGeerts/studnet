@@ -1,15 +1,14 @@
 <?php
 
+// Si non connecté, redirection
+if (!isset($_SESSION['connected'])) header("Location: 404");
+
 include "models/user.php";
 
-if(isset($_POST['deleteUser'])) {
-
-    echo "OK";
+if (isset($_POST['deleteUser'])) {
     debug($_POST, false);
-
 }
 
-if (!isset($_SESSION['connected'])) header("Location: 404");
 
 $students_cards = "";
 
@@ -18,7 +17,7 @@ $response = getAllUsers();
 foreach ($response['data'] as $user) {
 
     list(
-        $id, 
+        $id,
         $lastname,
         $firstname,
         $gender,
